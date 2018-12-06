@@ -1,10 +1,10 @@
 {% extends "base.html" %} 
 
-{% block titulo %} Registrar usuario {% endblock %} 
+{% block titulo %} Identificar usuario {% endblock %} 
 
 {% block contenido_principal %}
-  <h2>Registrar usuario</h2>
-  <form class="form-horizontal" method="post" action="/usuario" >
+  <h2>Identificación de usuario</h2>
+  <form class="form-horizontal" method="post" action="/identificarse" >
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Email:</label>
       <div class="col-sm-10">
@@ -19,18 +19,9 @@
         	placeholder="contraseña" required="true" />
       </div>
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="tipo">Tipo:</label>
-      <div class="col-sm-10">
-        <select class="form-control" name="tipo" required="true">
-          <option value="trabajador">Trabajador</option>
-          <option value="empresa">Empresa</option>
-        </select>
-      </div>
-    </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button type="submit" class="btn btn-primary">Aceptar</button>
       </div>
     </div>
   </form>

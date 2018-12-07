@@ -4,7 +4,10 @@ module.exports = function(app, swig, gestorBD) {
     var msg = require('./msg.js');
 
     app.get(uris.registrarse(), function(req, res) {
-        res.send(swig.renderFile('views/bregistro.html', {}));
+        res.send(swig.renderFile('views/bregistro.html', {
+            active: "registrarse",
+            usuario: req.session.usuario
+        }));
     });
 
     app.post(uris.usuario(), function(req, res) {
@@ -14,7 +17,7 @@ module.exports = function(app, swig, gestorBD) {
             email : req.body.email,
             tipo : req.body.tipo,
             password : seguro
-        }
+        };
 
         gestorBD.insertar(data=usuario, entidad="usuario", function(id) {
             if (id == null){
@@ -35,7 +38,10 @@ module.exports = function(app, swig, gestorBD) {
     });
 
     app.get(uris.identificarse(), function(req, res) {
-        res.send(swig.renderFile('views/bidentificacion.html', {}));
+        res.send(swig.renderFile('views/bidentificacion.html', {
+            active: "identificarse",
+            usuario: req.session.usuario
+        }));
     });
 
     app.post(uris.identificarse(), function(req, res) {
@@ -52,9 +58,13 @@ module.exports = function(app, swig, gestorBD) {
                 res.redirect(uris.identificarse()
                     + msg.danger("Usuario o password incorrecto"));
             } else {
-                req.session.usuario = usuarios[0].email;
+                var usuario = {
+                    email : usuarios[0].email,
+                    tipo : usuarios[0].tipo
+                };
+                req.session.usuario = usuario;
                 res.redirect(uris.principal()
-                    + msg.success("Bienvenido " + usuarios[0].email));
+                    + msg.success("Bienvenido " + usuario.email));
             }
         });
 

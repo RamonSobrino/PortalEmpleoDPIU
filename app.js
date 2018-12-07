@@ -60,8 +60,18 @@ require("./routes/rtrabajador.js")(app, swig, gestorBD);
 var uris = require('./routes/uris.js');
 app.get(uris.principal(), function (req, res) {
 	res.send(swig.renderFile('views/bofertas.html', {
+        active: "inicio",
+	    usuario: req.session.usuario
 	}));
-})
+});
+
+
+/*
+    FILTRO PAGINAS NO RECONOCIDAS
+ */
+app.get("*", function (req, res) {
+    res.redirect(uris.principal());
+});
 
 
 /*
@@ -81,4 +91,4 @@ app.use( function (err, req, res, next ) {
  */
 app.listen(app.get('port'), function() {
 	console.log("Servidor activo");
-})
+});

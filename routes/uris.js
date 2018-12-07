@@ -24,3 +24,13 @@ exports.registrarse = function () {
 exports.usuario = function () {
     return "/usuario";
 };
+/*
+    ACCESOS PRIVADOS
+ */
+exports.curriculum = function () {
+    return carpetaPrivada + "/curriculum";
+};
+
+exports.misofertas = function () {
+    return carpetaPrivada + "/misofertas";
+};

@@ -49,7 +49,7 @@ module.exports = {
                     if (err) {
                         funcionCallback(null);
                     } else {
-                        funcionCallback(result);
+                        funcionCallback(result.ops[0]._id);
                     }
                     db.close();
                 });

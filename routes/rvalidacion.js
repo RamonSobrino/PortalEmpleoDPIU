@@ -39,4 +39,6 @@ module.exports = function(app, express, gestorBD) {
     app.use(uris.carpetaPrivada(), validarSesion);
     app.use(uris.curriculum(), validarAccesoTrabajador);
     app.use(uris.misofertas(), validarAccesoEmpresa);
+    app.use(uris.nuevaOferta(), validarAccesoEmpresa);
+    app.use(uris.modificarOferta(), validarAccesoEmpresa);
 };

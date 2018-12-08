@@ -1,5 +1,6 @@
 module.exports = function(app, swig, gestorBD) {
 
+    var entidades = require('./entidades.js');
     var uris = require('./uris.js');
     var msg = require('./msg.js');
 
@@ -19,7 +20,7 @@ module.exports = function(app, swig, gestorBD) {
             password : seguro
         };
 
-        gestorBD.insertar(data=usuario, entidad="usuario", function(id) {
+        gestorBD.insertar(data=usuario, entidades.usuarios(), function(id) {
             if (id == null){
                 res.redirect(uris.registrarse()
                     + msg.danger("Error al registrar usuario"));
@@ -52,13 +53,14 @@ module.exports = function(app, swig, gestorBD) {
             password : seguro
         }
 
-        gestorBD.obtener(criterio, entidad="usuario", function(usuarios) {
+        gestorBD.obtener(criterio, entidades.usuarios(), function(usuarios) {
             if (usuarios == null || usuarios.length == 0) {
                 req.session.usuario = null;
                 res.redirect(uris.identificarse()
                     + msg.danger("Usuario o password incorrecto"));
             } else {
                 var usuario = {
+                    _id: usuarios[0]._id,
                     email : usuarios[0].email,
                     tipo : usuarios[0].tipo
                 };

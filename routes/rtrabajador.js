@@ -1,5 +1,6 @@
 module.exports = function(app, swig, gestorBD) {
 
+    var entidades = require('./entidades.js');
     var uris = require('./uris.js');
     var msg = require('./msg.js');
 

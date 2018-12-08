@@ -35,7 +35,8 @@ app.use(express.static('public'));
 	VARIABLES GLOBALES
  */
 app.set('port', 8090);
-app.set('db','mongodb://admin:dpiu2018@ds127624.mlab.com:27624/dpiu_bolsa_empleo');
+//app.set('db','mongodb://admin:dpiu2018@ds127624.mlab.com:27624/dpiu_bolsa_empleo');
+app.set('db','mongodb://localhost:27017/dpiu_bolsa_empleo');
 app.set('clave','abcdefg');
 app.set('crypto',crypto);
 
@@ -49,26 +50,17 @@ require("./routes/rvalidacion.js")(app, express, gestorBD);
 /*
 	CONTROLADORES
  */
+require("./routes/rprincipal.js")(app, swig, gestorBD);
 require("./routes/rusuario.js")(app, swig, gestorBD);
 require("./routes/rempresa.js")(app, swig, gestorBD);
 require("./routes/rtrabajador.js")(app, swig, gestorBD);
-
-
-/*
-	PAGINA PRINCIPAL
- */
-var uris = require('./routes/uris.js');
-app.get(uris.principal(), function (req, res) {
-	res.send(swig.renderFile('views/bofertas.html', {
-        active: "inicio",
-	    usuario: req.session.usuario
-	}));
-});
+require("./routes/roferta.js")(app, swig, gestorBD);
 
 
 /*
     FILTRO PAGINAS NO RECONOCIDAS
  */
+var uris = require('./routes/uris.js');
 app.get("*", function (req, res) {
     res.redirect(uris.principal());
 });

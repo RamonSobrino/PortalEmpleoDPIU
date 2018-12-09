@@ -45,6 +45,10 @@ exports.modificarOferta = function () {
     return carpetaPrivada + "/misofertas/modificar";
 };
 
+exports.apuntarseOferta = function () {
+    return carpetaPrivada + "/ofertas/apuntarse";
+};
+
 exports.curriculum = function () {
     return carpetaPrivada + "/curriculum";
 };

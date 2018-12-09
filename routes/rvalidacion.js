@@ -37,8 +37,10 @@ module.exports = function(app, express, gestorBD) {
         ASIGNACION DE VALIDADORES A URIs
      */
     app.use(uris.carpetaPrivada(), validarSesion);
+    app.use(uris.apuntarseOferta(), validarAccesoTrabajador);
     app.use(uris.curriculum(), validarAccesoTrabajador);
     app.use(uris.misofertas(), validarAccesoEmpresa);
     app.use(uris.nuevaOferta(), validarAccesoEmpresa);
     app.use(uris.modificarOferta(), validarAccesoEmpresa);
+
 };

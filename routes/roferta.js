@@ -78,6 +78,63 @@ module.exports = function(app, swig, gestorBD) {
         });
     });
 
+    app.post(uris.apuntarseOferta() + "/:id", function(req, res) {
+        var ofertaId = req.params.id;
+        var criterio = { "_id" : gestorBD.mongo.ObjectID(ofertaId) };
+
+        gestorBD.obtener(criterio, entidades.ofertas(), function(ofertas) {
+            if (ofertas == null || ofertas.length == 0) {
+                res.redirect(uris.identificarse()
+                    + msg.danger("No se puede ver la oferta"));
+            } else {
+                var oferta = ofertas[0]
+                var apuntados = oferta.apuntados;
+                var actualizar = false;
+                if(apuntados) {
+                    if(!apuntados.includes(req.session.usuario._id)){
+                        apuntados.push(req.session.usuario._id);
+                        actualizar=true;
+                    }
+                }else{
+                    apuntados = [];
+                    apuntados.push(req.session.usuario._id);
+                    actualizar=true;
+                }
+                if(actualizar) {
+                    var oferta = {
+                        empresa: oferta.empresa,
+                        cargo: oferta.cargo,
+                        requisitosMinimos: oferta.requisitosMinimos,
+                        requisitosDeseables: oferta.requisitosDeseables,
+                        sueldo: oferta.sueldo,
+                        localizacion: oferta.localizacion,
+                        apuntados: apuntados
+                    };
+
+                    gestorBD.actualizar(criterio, data = oferta, entidades.ofertas(), function (result) {
+                        if (result == null) {
+                            res.redirect(uris.misofertas()
+                                + msg.danger("Error al actualizar la oferta"));
+                        } else {
+                            res.redirect(uris.verOferta()
+                                + "/" + ofertaId
+                                + msg.success("Apuntado a oferta"));
+                        }
+                    });
+                }else{
+                    res.redirect(uris.verOferta()
+                        + "/" + ofertaId
+                        + msg.success("Ya estás apuntado a esta oferta"));
+                }
+            }
+        });
+
+
+
+
+
+    });
+
     app.get(uris.verOferta(), function(req, res) {
         var ofertaId = req.params.id;
         var criterio = { "_id" : gestorBD.mongo.ObjectID(ofertaId) };
@@ -88,7 +145,7 @@ module.exports = function(app, swig, gestorBD) {
                     + msg.danger("No se puede ver la oferta"));
             } else {
                 var accion = "ver";
-                if(req.session.usuario){
+                if(req.session.usuario  && req.session.usuario.tipo == 'empresa'){
                     accion = "modificar";
                 }
                 res.send(swig.renderFile('views/bveroferta.html', {

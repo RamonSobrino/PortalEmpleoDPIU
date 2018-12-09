@@ -10,6 +10,8 @@
 <form class="form-horizontal" method="post"
     {% if accion == 'nuevo' %} action="/priv/misofertas/nuevo" {% endif %}
     {% if accion == 'modificar' %} action="/priv/misofertas/modificar/{{ oferta._id.toString() }}" {% endif %}
+    {% if accion == 'ver' %} action="/priv/ofertas/apuntarse/{{ oferta._id.toString() }}" {% endif %}
+
 >
     {% if accion == 'modificar' %}
     <div class="form-group">
@@ -28,7 +30,7 @@
         <div class="col-sm-10">
             <input type="text" name="empresa"
                 {% if accion == 'ver' %} disabled="true" {% endif %}
-                {% if accion == 'modificar' %} value="{{ oferta.empresa }}" {% endif %}
+                {% if accion != 'nuevo' %} value="{{ oferta.empresa }}" {% endif %}
             class="form-control"
             placeholder="Nombre de la empresa"
             required="true" />
@@ -40,7 +42,7 @@
         <div class="col-sm-10">
             <input type="text" name="cargo"
                 {% if accion == 'ver' %} disabled="true" {% endif %}
-                {% if accion == 'modificar' %} value="{{ oferta.cargo }}" {% endif %}
+                {% if accion != 'nuevo' %} value="{{ oferta.cargo }}" {% endif %}
             class="form-control"
             placeholder="Cargo en la empresa"
             required="true" />
@@ -52,7 +54,7 @@
         <div class="col-sm-10">
             <input type="text" name="requisitosMinimos"
                 {% if accion == 'ver' %} disabled="true" {% endif %}
-                {% if accion == 'modificar' %} value="{{ oferta.requisitosMinimos }}" {% endif %}
+                {% if accion != 'nuevo' %} value="{{ oferta.requisitosMinimos }}" {% endif %}
             class="form-control"
             placeholder="Requisitos mínimos de los trabajadores"
             required="true" />
@@ -64,7 +66,7 @@
         <div class="col-sm-10">
             <input type="text" name="requisitosDeseables"
                 {% if accion == 'ver' %} disabled="true" {% endif %}
-                {% if accion == 'modificar' %} value="{{ oferta.requisitosDeseables }}" {% endif %}
+                {% if accion != 'nuevo' %} value="{{ oferta.requisitosDeseables }}" {% endif %}
             class="form-control"
             placeholder="Requisitos deseables en los trabajadores"
             required="true" />
@@ -76,7 +78,7 @@
         <div class="col-sm-10">
             <input type="text" name="sueldo"
                 {% if accion == 'ver' %} disabled="true" {% endif %}
-                {% if accion == 'modificar' %} value="{{ oferta.sueldo }}" {% endif %}
+                {% if accion != 'nuevo' %} value="{{ oferta.sueldo }}" {% endif %}
             class="form-control"
             placeholder="Sueldo a percibir"
             required="true" />
@@ -88,7 +90,7 @@
         <div class="col-sm-10">
             <input type="text" name="localizacion"
                 {% if accion == 'ver' %} disabled="true" {% endif %}
-                {% if accion == 'modificar' %} value="{{ oferta.localizacion }}" {% endif %}
+                {% if accion != 'nuevo' %} value="{{ oferta.localizacion }}" {% endif %}
             class="form-control"
             placeholder="Direccion completa (dirección, codigo postal, ciudad, pais)"
             required="true" />
@@ -99,6 +101,14 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if accion == 'ver' %}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Apuntarme</button>
         </div>
     </div>
     {% endif %}

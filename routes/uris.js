@@ -29,6 +29,10 @@ exports.verOferta = function () {
     return "/oferta/ver/:id";
 };
 
+exports.ofertaAvanzado = function () {
+    return "/ofertas/avanzado";
+};
+
 
 /*
     ACCESOS PRIVADOS

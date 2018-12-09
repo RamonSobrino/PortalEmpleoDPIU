@@ -128,11 +128,6 @@ module.exports = function(app, swig, gestorBD) {
                 }
             }
         });
-
-
-
-
-
     });
 
     app.get(uris.verOferta(), function(req, res) {

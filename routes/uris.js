@@ -25,6 +25,10 @@ exports.usuario = function () {
     return "/usuario";
 };
 
+exports.infousuario = function () {
+    return "/infousuario";
+};
+
 exports.verOferta = function () {
     return "/oferta/ver/:id";
 };

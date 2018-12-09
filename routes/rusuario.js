@@ -45,6 +45,59 @@ module.exports = function(app, swig, gestorBD) {
         }));
     });
 
+
+    app.post(uris.infousuario(), function(req, res) {
+        var usuarioId =req.session.usuario._id;
+        var criterio = { "_id" : gestorBD.mongo.ObjectID(usuarioId) };
+        var usuario = {
+            email : req.body.email,
+            tipo : req.body.tipo,
+        };
+
+        gestorBD.actualizar(criterio, data=usuario, entidades.usuarios(), function(id) {
+            if (id == null){
+                res.redirect(uris.infousuario()
+                    + msg.danger("Error al modificar usuario"));
+            } else {
+                var usuariomodificado = {
+                    _id : id,
+                    email : req.body.email,
+                    tipo : req.body.tipo,
+                };
+                req.session.usuario = usuariomodificado;
+                res.redirect(uris.principal()
+                    + msg.success("Usuario Modificado"));
+            }
+        });
+
+    });
+
+    app.get(uris.infousuario(), function(req, res) {
+        var usuarioId = req.session.usuario._id;
+        var criterio = { "_id" : gestorBD.mongo.ObjectID(usuarioId) };
+
+
+        gestorBD.obtener(criterio, entidades.usuarios(), function(usuarios) {
+            if (usuarios == null || usuarios.length == 0) {
+                req.session.usuario = null;
+                res.redirect(uris.principal()
+                    + msg.danger("Usuario no identificado"));
+            } else {
+                var usuario = {
+                    _id: usuarios[0]._id,
+                    email : usuarios[0].email,
+                    tipo : usuarios[0].tipo
+                };
+                req.session.usuario = usuario;
+                res.send(swig.renderFile('views/binfousuario.html', {
+                    usuario: usuario,
+                }));
+            }
+        });
+    });
+
+
+
     app.post(uris.identificarse(), function(req, res) {
         var seguro = app.get("crypto").createHmac('sha256', app.get('clave'))
             .update(req.body.password).digest('hex');

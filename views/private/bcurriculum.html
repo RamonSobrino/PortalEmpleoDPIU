@@ -4,5 +4,68 @@
 
 {% block contenido_principal %}
 <h2>Curriculum</h2>
-
+<form class="form-horizontal" method="post" id="curriculumForm"
+      {% if accion == 'nuevo' %} action="/priv/curriculum/nuevo" {% endif %}
+    {% if accion == 'modificar' %} action="/priv/curriculum/modificar" {% endif %}
+    >
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="nombre">Nombre completo:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="nombre"
+                   placeholder="Nombre completo" required="true"
+                   value="{{ curriculum.nombre }}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="fechaNacimiento">Fecha nacimiento:</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" name="fechaNacimiento"
+                   placeholder="Fecha nacimiento" required="true"
+                   value="{{ curriculum.fechaNacimiento }}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Email:</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" name="email"
+                   placeholder="Email" required="true"
+                   value="{{ curriculum.email }}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="estudios">Estudios:</label>
+        <div class="col-sm-10">
+            <textarea rows="4" cols="50" class="form-control"  placeholder="Estudios" required="true" name="estudios" form="curriculumForm"> {% if accion == 'modificar' %}{{ curriculum.estudios }} {% endif %}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="expLaboral">Experiencia laboral:</label>
+        <div class="col-sm-10">
+            <textarea rows="4" cols="50" class="form-control" placeholder="Experiencia laboral" required="true" name="expLaboral" form="curriculumForm">{% if accion == 'modificar' %} {{ curriculum.expLaboral }}  {% endif %}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="idiomas">Idiomas:</label>
+        <div class="col-sm-10">
+            <textarea rows="4" cols="50" class="form-control" placeholder="Idiomas" required="true" name="idiomas" form="curriculumForm">{% if accion == 'modificar' %} {{ curriculum.idiomas }} {% endif%}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="otrasCualificaciones">Otras cualificaiones:</label>
+        <div class="col-sm-10">
+            <textarea rows="4" cols="50" class="form-control" placeholder="Otras cualificaiones" required="true" name="otrasCualificaciones" form="curriculumForm"> {% if accion == 'modificar' %} {{ curriculum.otrasCualificaciones }} {% endif%}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="intereses">Intereses:</label>
+        <div class="col-sm-10">
+            <textarea rows="4" cols="50" class="form-control" placeholder="Intereses" required="true" name="intereses" form="curriculumForm">{% if accion == 'modificar' %} {{ curriculum.intereses }} {% endif%}</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+</form>
 {% endblock %}

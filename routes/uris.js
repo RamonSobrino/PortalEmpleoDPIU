@@ -49,3 +49,12 @@ exports.curriculum = function () {
     return carpetaPrivada + "/curriculum";
 };
 
+exports.curriculumNuevo = function () {
+    return carpetaPrivada + "/curriculum/nuevo";
+};
+
+exports.curriculumModificar = function () {
+    return carpetaPrivada + "/curriculum/modificar";
+};
+
+

@@ -6,3 +6,8 @@ exports.usuarios = function () {
 exports.ofertas = function () {
     return "oferta";
 };
+
+
+exports.curriculums = function () {
+    return "curriculum";
+};

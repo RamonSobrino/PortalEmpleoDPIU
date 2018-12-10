@@ -153,4 +153,17 @@ module.exports = function(app, swig, gestorBD, validator) {
         });
     });
 
+    app.get(uris.eliminarOferta(), function (req, res) {
+        var criterio = { "_id" : gestorBD.mongo.ObjectID(req.params.id)  };
+        gestorBD.eliminar(criterio, entidades.ofertas() ,function(result){
+            if (result == null){
+                res.redirect(uris.misofertas()
+                    + msg.danger("Error al borrar la oferta"));
+            } else {
+                res.redirect(uris.misofertas()
+                    + msg.success("Oferta borrada con éxito"));
+            }
+        });
+    })
+
 };

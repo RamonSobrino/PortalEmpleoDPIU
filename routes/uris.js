@@ -53,6 +53,10 @@ exports.modificarOferta = function () {
     return carpetaPrivada + "/misofertas/modificar";
 };
 
+exports.eliminarOferta = function () {
+    return carpetaPrivada + "/misofertas/eliminar/:id";
+};
+
 exports.apuntarseOferta = function () {
     return carpetaPrivada + "/ofertas/apuntarse";
 };

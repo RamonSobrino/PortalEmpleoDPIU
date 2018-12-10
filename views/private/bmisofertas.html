@@ -27,6 +27,7 @@
             <td>{{ oferta.sueldo }}</td>
             <td>
                 <a href="/priv/misofertas/modificar/{{ oferta._id.toString() }}">Ver</a>
+                <br/><a href="/priv/misofertas/eliminar/{{ oferta._id.toString() }}">Borrar</a>
             </td>
         </tr>
         {% endfor %}

@@ -1,4 +1,4 @@
-module.exports = function(app, swig, gestorBD) {
+module.exports = function(app, swig, gestorBD, validator) {
 
     var entidades = require('./entidades.js');
     var uris = require('./uris.js');

@@ -1,4 +1,10 @@
 /*
+    MODULO ADICIONAL PARA VALIDACION DE CAMPOS
+ */
+var validator = require('validator');
+
+
+/*
 	MODULOS
  */
 var express = require('express');
@@ -51,10 +57,10 @@ require("./routes/rvalidacion.js")(app, express, gestorBD);
 	CONTROLADORES
  */
 require("./routes/rprincipal.js")(app, swig, gestorBD);
-require("./routes/rusuario.js")(app, swig, gestorBD);
+require("./routes/rusuario.js")(app, swig, gestorBD, validator);
 require("./routes/rempresa.js")(app, swig, gestorBD);
-require("./routes/rtrabajador.js")(app, swig, gestorBD);
-require("./routes/roferta.js")(app, swig, gestorBD);
+require("./routes/rtrabajador.js")(app, swig, gestorBD, validator);
+require("./routes/roferta.js")(app, swig, gestorBD, validator);
 
 
 /*

@@ -46,12 +46,10 @@ app.set('db','mongodb://admin:dpiu2018@ds127634.mlab.com:27634/dpiu_bolsa_empleo
 app.set('clave','abcdefg');
 app.set('crypto',crypto);
 
-
 /*
 	VALIDADOR DE ACCESO
  */
 require("./routes/rvalidacion.js")(app, express, gestorBD);
-
 
 /*
 	CONTROLADORES
@@ -62,6 +60,10 @@ require("./routes/rempresa.js")(app, swig, gestorBD);
 require("./routes/rtrabajador.js")(app, swig, gestorBD, validator);
 require("./routes/roferta.js")(app, swig, gestorBD, validator);
 
+/*
+	AMPLIACION
+ */
+require("./routes/rampliacion.js")(app, swig);
 
 /*
     FILTRO PAGINAS NO RECONOCIDAS

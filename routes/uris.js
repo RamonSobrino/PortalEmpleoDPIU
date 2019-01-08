@@ -74,3 +74,39 @@ exports.curriculumModificar = function () {
 };
 
 
+/*
+    ACCESOS DE AMPLIACION
+ */
+exports.marqueting = function () {
+    return "/ampliacion/marqueting";
+};
+exports.publicidad = function () {
+    return "/ampliacion/publicidad";
+};
+exports.conferencias = function () {
+    return "/ampliacion/conferencias";
+};
+exports.cursos = function () {
+    return "/ampliacion/cursos";
+};
+exports.freelance = function () {
+    return "/ampliacion/freelance";
+};
+exports.blogs = function () {
+    return "/ampliacion/blogs";
+};
+exports.economia = function () {
+    return "/ampliacion/economia";
+};
+exports.contacta = function () {
+    return "/ampliacion/contacta";
+};
+exports.salaPrensa = function () {
+    return "/ampliacion/salaPrensa";
+};
+exports.privacidad = function () {
+    return "/ampliacion/privacidad";
+};
+exports.condicionesGenerales = function () {
+    return "/ampliacion/condicionesGenerales";
+};

@@ -23,9 +23,9 @@
       <img src="/img/logo.png" alt="logo"/> 
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav mr-auto">
         <li id="mInicio" {% if active == 'inicio' %} class="active" {% endif %}>
-          <a href="/"><span class="glyphicon glyphicon-home"></span> Inicio</a>
+          <a href="/"><span class="glyphicon glyphicon-home"></span> Empleos</a>
         </li>
         {% if usuario.tipo == 'trabajador' %}
           <li id="mCurriculum" {% if active == 'curriculum' %} class="active" {% endif %}>
@@ -37,6 +37,39 @@
             <a href="/priv/misofertas">Mis ofertas</a>
           </li>
         {% endif %}
+        <li {% if active == 'marqueting' %} class="active" {% endif %}>
+        <a href="/ampliacion/marqueting">Marketing</a>
+        </li>
+        <li {% if active == 'publicidad' %} class="active" {% endif %}>
+        <a href="/ampliacion/publicidad">Publicidad</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Comunidad
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdown03" >
+            <a class="dropdown-item" href="/ampliacion/conferencias">Conferencias y eventos</a>
+            <a class="dropdown-item" href="/ampliacion/cursos">Cursos de formación</a>
+            <a class="dropdown-item" href="/ampliacion/freelance">Freelance</a>
+            <a class="dropdown-item" href="/ampliacion/blogs">Blogs</a>
+            <a class="dropdown-item" href="/ampliacion/economia">Economía</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Nosotros
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdown03" >
+            <a class="dropdown-item" href="/ampliacion/contacta">Contacta</a>
+            <a class="dropdown-item" href="/ampliacion/salaPrensa">Sala de prensa</a>
+            <a class="dropdown-item" href="/ampliacion/privacidad">Política de privacidad</a>
+            <a class="dropdown-item" href="/ampliacion/condicionesGenerales">Condiciones generales</a>
+            <div class="dropdown-divider"></div>
+          </div>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if usuario == null %}

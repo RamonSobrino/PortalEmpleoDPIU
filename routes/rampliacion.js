@@ -92,4 +92,11 @@ module.exports = function (app, swig) {
         }));
     });
 
+    app.get(uris.nosotros(), function (req, res) {
+        res.send(swig.renderFile('views/ampliacion/bnosotros.html', {
+            active: "nosotros",
+            usuario: req.session.usuario
+        }));
+    });
+
 };

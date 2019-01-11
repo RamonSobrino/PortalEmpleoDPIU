@@ -113,3 +113,6 @@ exports.privacidad = function () {
 exports.condicionesGenerales = function () {
     return "/ampliacion/condicionesGenerales";
 };
+exports.nosotros = function () {
+    return "/ampliacion/nosotros";
+};

@@ -77,6 +77,9 @@ exports.curriculumModificar = function () {
 /*
     ACCESOS DE AMPLIACION
  */
+exports.inversion = function () {
+    return "/ampliacion/inversion";
+};
 exports.marqueting = function () {
     return "/ampliacion/marqueting";
 };

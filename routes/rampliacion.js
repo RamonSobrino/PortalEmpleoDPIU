@@ -1,6 +1,19 @@
-module.exports = function(app, swig) {
+module.exports = function (app, swig) {
 
     var uris = require('./uris.js');
+
+
+    app.get(uris.inversion(), function (req, res) {
+        res.send(swig.renderFile('views/ampliacion/binversion.html', {
+            active: "inversion",
+            usuario: req.session.usuario
+        }));
+    });
+
+
+    /*
+        PAGINAS VACIAS
+     */
 
     app.get(uris.marqueting(), function (req, res) {
         res.send(swig.renderFile('views/ampliacion/bmarqueting.html', {

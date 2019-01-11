@@ -2,46 +2,50 @@
 <html lang="es">
 <head>
   <title>{% block titulo %} Bolsa de empleo {% endblock %}</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  {% block scripts %} {% endblock %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
 <!-- Barra de Navegación superior -->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <img src="/img/logo.png" alt="logo"/> 
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav mr-auto">
-        <li id="mInicio" {% if active == 'inicio' %} class="active" {% endif %}>
-          <a href="/"><span class="glyphicon glyphicon-home"></span> Empleos</a>
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">BolsaEmpleo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {% if active == 'inicio' %}active{% endif %}">
+          <a class="nav-link" href="/"><span class="glyphicon glyphicon-home"></span> Empleos</a>
         </li>
         {% if usuario.tipo == 'trabajador' %}
-          <li id="mCurriculum" {% if active == 'curriculum' %} class="active" {% endif %}>
-            <a href="/priv/curriculum">Curriculum</a>
+          <li class="nav-item {% if active == 'curriculum' %}active{% endif %}">
+            <a class="nav-link" href="/priv/curriculum">Curriculum</a>
           </li>
         {% endif %}
         {% if usuario.tipo == 'empresa' %}
-		  <li id="mMisOffertas" {% if active == 'misofertas' %} class="active" {% endif %}>
-            <a href="/priv/misofertas">Mis ofertas</a>
+          <li class="nav-item {% if active == 'misofertas' %}active{% endif %}">
+            <a class="nav-link" href="/priv/misofertas">Mis ofertas</a>
           </li>
         {% endif %}
-        <li {% if active == 'marqueting' %} class="active" {% endif %}>
-        <a href="/ampliacion/marqueting">Marketing</a>
+        <li class="nav-item {% if active == 'marqueting' %}active{% endif %}">
+        <a class="nav-link" href="/ampliacion/marqueting">Marketing</a>
         </li>
-        <li {% if active == 'publicidad' %} class="active" {% endif %}>
-        <a href="/ampliacion/publicidad">Publicidad</a>
+        <li class="nav-item {% if active == 'publicidad' %}active{% endif %}">
+        <a class="nav-link" href="/ampliacion/publicidad">Publicidad</a>
+        </li>
+
+        <li class="nav-item {% if active == 'inversion' %}active{% endif %}">
+        <a class="nav-link" href="/ampliacion/inversion">Inversión</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -73,23 +77,21 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if usuario == null %}
-	      <li {% if active == 'registrarse' %} class="active" {% endif %}>
-            <a href="/registrarse"><span class="glyphicon glyphicon-user"></span> Registrate</a>
+          <li class="nav-item {% if active == 'registrarse' %}active{% endif %}">
+            <a class="nav-link" href="/registrarse"><span class="glyphicon glyphicon-user"></span> Registrate</a>
           </li>
-          <li {% if active == 'identificarse' %} class="active" {% endif %}>
-            <a href="/identificarse"><span class="glyphicon glyphicon-log-in"></span> Identifícate</a>
+          <li class="nav-item {% if active == 'identificarse' %}active{% endif %}">
+            <a class="nav-link" href="/identificarse"><span class="glyphicon glyphicon-log-in"></span> Identifícate</a>
           </li>
         {% endif %}
         {% if usuario != null %}
-          <li><a href="/infousuario"><span class="glyphicon glyphicon-user"></span> {{ usuario.email }}</a></li>
-          <li><a href="/desconectarse"><span class="glyphicon glyphicon-log-out"></span> Desconectarse</a></li>
+          <li><a class="nav-link" href="/infousuario"><span class="glyphicon glyphicon-user"></span> {{ usuario.email }}</a></li>
+          <li><a class="nav-link" href="/desconectarse"><span class="glyphicon glyphicon-log-out"></span> Desconectarse</a></li>
         {% endif %}
       </ul>
     </div>
-  </div>
 </nav>
-
-
+</div>
 
 <div class="container">
 	<script>
@@ -120,6 +122,15 @@
 
 </div>
 
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+{% block scripts %} {% endblock %}
 </body>
 </html>

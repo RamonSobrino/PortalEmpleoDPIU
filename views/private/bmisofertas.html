@@ -10,13 +10,13 @@
 </a>
 
 <div class="table-responsive">
-    <table class="table table-hover">
-        <thead>
+    <table class="table">
+        <thead  class="thead-dark">
         <tr>
             <th>Empresa</th>
             <th>Cargo</th>
             <th>Sueldo</th>
-            <th class="col-md-1"></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -36,8 +36,8 @@
 </div>
 
 <!-- Paginación mostrar la actual y 2 anteriores y dos siguientes -->
-<div class="row text-center">
-    <ul class="pagination">
+<nav>
+    <ul class="pagination justify-content-center">
         {% for pagina in paginas %}
         <li class="page-item" id="pi-{{ pagina}}">
             <a class="page-link" href="/priv/misofertas?pg={{ pagina }}" >{{ pagina }}</a>
@@ -48,6 +48,7 @@
         </script>
 
     </ul>
-</div>
+</nav>
+
 
 {% endblock %}

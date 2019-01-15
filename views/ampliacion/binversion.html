@@ -8,13 +8,15 @@
 
 {% block contenido_principal %}
 <h2>Inversión</h2>
-<form class="form-horizontal" method="post" style="max-width: 600px;" >
-    <div class="row col-sm-12">
+<form method="get">
+    <div class="form-group col-sm-12">
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio"
                    name="sexo"
                    id="sr"
-                   value="señor">
+                   value="señor"
+                   required
+            >
             <label class="form-check-label"
                    for="sr">Señor</label>
         </div>
@@ -22,42 +24,47 @@
             <input class="form-check-input" type="radio"
                    name="sexo"
                    id="sis"
-                   value="señora">
+                   value="señora"
+                   required
+            >
             <label class="form-check-label"
                    for="sis">Señora</label>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-4"
+        <label class="control-label col-sm-2"
                for="nombre">Nombre:</label>
-        <div class="col-sm-8">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="nombre"
                    name="nombre"
-                   required="true"/>
+                   required/>
+        </div>
+        <div class="invalid-feedback">
+            Please provide a valid city.
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-4"
+        <label class="control-label col-sm-2"
                for="apellidos">Apellidos:</label>
-        <div class="col-sm-8">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="apellidos"
                    name="apellidos"
-                   required="true"/>
+                   required/>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-4"
+        <label class="control-label col-sm-2"
                for="pais">Pais:</label>
-        <div class="col-sm-8">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="pais"
                    name="pais"
-                   required="true"/>
+                   required/>
         </div>
     </div>
-    <div class="row col-sm-12">
+    <div class="form-group col-sm-12">
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio"
                    name="solicitante"
@@ -76,54 +83,53 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-4"
+        <label class="control-label col-sm-2"
                for="nombreEmpresa">Nombre empresa:</label>
-        <div class="col-sm-8">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="nombreEmpresa"
-                   name="nombreEmpresa"
-                   required="true"/>
+                   name="nombreEmpresa"/>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-4"
+        <label class="control-label col-sm-2"
                for="puestoTrabajo">Puesto trabajo:</label>
-        <div class="col-sm-8">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="puestoTrabajo"
-                   name="puestoTrabajo"
-                   required="true"/>
+                   name="puestoTrabajo"/>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-4"
+        <label class="control-label col-sm-2"
                for="paisEmpresa">País de la empresa:</label>
-        <div class="col-sm-8">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="paisEmpresa"
-                   name="paisEmpresa"
-                   required="true"/>
+                   name="paisEmpresa"/>
         </div>
     </div>
-    <div class="row col-sm-12">
-        <label>Esta el negocio de la empresa diversificado en más de un país: </label>
-    </div>
-    <div class="row col-sm-12">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio"
-                   name="empresaVariosPaises"
-                   id="empresaVariosPaisesSi"
-                   value="si">
-            <label class="form-check-label"
-                   for="empresaVariosPaisesSi">Sí</label>
+    <div class="form-group">
+        <div class="row col-sm-12">
+            <label>Esta el negocio de la empresa diversificado en más de un país: </label>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio"
-                   name="empresaVariosPaises"
-                   id="empresaVariosPaisesNO"
-                   value="no">
-            <label class="form-check-label"
-                   for="empresaVariosPaisesNO">No</label>
+        <div class="row col-sm-12">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio"
+                       name="empresaVariosPaises"
+                       id="empresaVariosPaisesSi"
+                       value="si">
+                <label class="form-check-label"
+                       for="empresaVariosPaisesSi">Sí</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio"
+                       name="empresaVariosPaises"
+                       id="empresaVariosPaisesNO"
+                       value="no">
+                <label class="form-check-label"
+                       for="empresaVariosPaisesNO">No</label>
+            </div>
         </div>
     </div>
     <div class="row col-sm-12">
@@ -177,23 +183,23 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-6"
+        <label class="control-label col-sm-2"
                for="capitalMinimo">Capital mínimo disponible:</label>
-        <div class="col-sm-6">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="capitalMinimo"
                    name="capitalMinimo"
-                   required="true"/>
+                   required/>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-6"
+        <label class="control-label col-sm-2"
                for="capitalMaximo">Capital máximo disponible:</label>
-        <div class="col-sm-6">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="capitalMaximo"
                    name="capitalMaximo"
-                   required="true"/>
+                   required/>
         </div>
     </div>
     <div class="row col-sm-12">
@@ -255,34 +261,34 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-6"
+        <label class="control-label col-sm-2"
                for="telefonoConcretarLLamada">Concretar llamada:</label>
-        <div class="col-sm-6">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="telefonoConcretarLLamada"
                    name="telefonoConcretarLLamada"
                    placeholder="teléfono al que realizar la llamada"
-                   required="true"/>
+                   required/>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-6"
+        <label class="control-label col-sm-2"
                for="diaLLamada">Preferencia día para la llamada:</label>
-        <div class="col-sm-6">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="diaLLamada"
                    name="diaLLamada"
-                   required="true"/>
+                   required/>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-6"
+        <label class="control-label col-sm-2"
                for="horaLLamada">Preferencia hora para la llamada:</label>
-        <div class="col-sm-6">
+        <div class="col-sm-10">
             <input type="text" class="form-control"
                    id="horaLLamada"
                    name="horaLLamada"
-                   required="true"/>
+                   required/>
         </div>
     </div>
     <div class="form-group">
@@ -292,6 +298,5 @@
     </div>
 
 </form>
-
 
 {% endblock %}

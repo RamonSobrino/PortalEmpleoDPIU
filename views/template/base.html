@@ -1,125 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>{% block titulo %} Bolsa de empleo {% endblock %}</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block titulo %} Bolsa de empleo {% endblock %}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
 <!-- Barra de Navegación superior -->
 <div class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">BolsaEmpleo</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">BolsaEmpleo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item {% if active == 'inicio' %}active{% endif %}">
-          <a class="nav-link" href="/"><span class="glyphicon glyphicon-home"></span> Empleos</a>
-        </li>
-        {% if usuario.tipo == 'trabajador' %}
-          <li class="nav-item {% if active == 'curriculum' %}active{% endif %}">
-            <a class="nav-link" href="/priv/curriculum">Curriculum</a>
-          </li>
-        {% endif %}
-        {% if usuario.tipo == 'empresa' %}
-          <li class="nav-item {% if active == 'misofertas' %}active{% endif %}">
-            <a class="nav-link" href="/priv/misofertas">Mis ofertas</a>
-          </li>
-        {% endif %}
-        <li class="nav-item {% if active == 'marqueting' %}active{% endif %}">
-        <a class="nav-link" href="/ampliacion/marqueting">Marketing</a>
-        </li>
-        <li class="nav-item {% if active == 'publicidad' %}active{% endif %}">
-        <a class="nav-link" href="/ampliacion/publicidad">Publicidad</a>
-        </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item {% if active == 'inicio' %}active{% endif %}">
+                    <a class="nav-link" href="/"><span class="glyphicon glyphicon-home"></span> Empleos</a>
+                </li>
+                {% if usuario.tipo == 'trabajador' %}
+                <li class="nav-item {% if active == 'curriculum' %}active{% endif %}">
+                    <a class="nav-link" href="/priv/curriculum">Curriculum</a>
+                </li>
+                {% endif %}
+                {% if usuario.tipo == 'empresa' %}
+                <li class="nav-item {% if active == 'misofertas' %}active{% endif %}">
+                    <a class="nav-link" href="/priv/misofertas">Mis ofertas</a>
+                </li>
+                {% endif %}
+                <button type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                        aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">...</span>
+                </button>
+                <div class="collapse" id="navbarTogglerDemo01">
 
-        <li class="nav-item {% if active == 'inversion' %}active{% endif %}">
-        <a class="nav-link" href="/ampliacion/inversion">Inversión</a>
-        </li>
+                    <li class="nav-item {% if active == 'marqueting' %}active{% endif %}">
+                        <a class="nav-link" href="/ampliacion/marqueting">Marketing</a>
+                    </li>
+                    <li class="nav-item {% if active == 'publicidad' %}active{% endif %}">
+                        <a class="nav-link" href="/ampliacion/publicidad">Publicidad</a>
+                    </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Comunidad
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdown03" >
-            <a class="dropdown-item" href="/ampliacion/conferencias">Conferencias y eventos</a>
-            <a class="dropdown-item" href="/ampliacion/cursos">Cursos de formación</a>
-            <a class="dropdown-item" href="/ampliacion/freelance">Freelance</a>
-            <a class="dropdown-item" href="/ampliacion/blogs">Blogs</a>
-            <a class="dropdown-item" href="/ampliacion/economia">Economía</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Nosotros
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdown03" >
-            <a class="dropdown-item" href="/ampliacion/contacta">Contacta</a>
-            <a class="dropdown-item" href="/ampliacion/salaPrensa">Sala de prensa</a>
-            <a class="dropdown-item" href="/ampliacion/privacidad">Política de privacidad</a>
-            <a class="dropdown-item" href="/ampliacion/condicionesGenerales">Condiciones generales</a>
-            <a class="dropdown-item" href="/ampliacion/nosotros">Nosotros</a>
-            <div class="dropdown-divider"></div>
-          </div>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        {% if usuario == null %}
-          <li class="nav-item {% if active == 'registrarse' %}active{% endif %}">
-            <a class="nav-link" href="/registrarse"><span class="glyphicon glyphicon-user"></span> Registrate</a>
-          </li>
-          <li class="nav-item {% if active == 'identificarse' %}active{% endif %}">
-            <a class="nav-link" href="/identificarse"><span class="glyphicon glyphicon-log-in"></span> Identifícate</a>
-          </li>
-        {% endif %}
-        {% if usuario != null %}
-          <li><a class="nav-link" href="/infousuario"><span class="glyphicon glyphicon-user"></span> {{ usuario.email }}</a></li>
-          <li><a class="nav-link" href="/desconectarse"><span class="glyphicon glyphicon-log-out"></span> Desconectarse</a></li>
-        {% endif %}
-      </ul>
-    </div>
+                    <li class="nav-item {% if active == 'inversion' %}active{% endif %}">
+                        <a class="nav-link" href="/ampliacion/inversion">Inversión</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Comunidad
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown03">
+                            <a class="dropdown-item" href="/ampliacion/conferencias">Conferencias y eventos</a>
+                            <a class="dropdown-item" href="/ampliacion/cursos">Cursos de formación</a>
+                            <a class="dropdown-item" href="/ampliacion/freelance">Freelance</a>
+                            <a class="dropdown-item" href="/ampliacion/blogs">Blogs</a>
+                            <a class="dropdown-item" href="/ampliacion/economia">Economía</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Nosotros
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown03">
+                            <a class="dropdown-item" href="/ampliacion/contacta">Contacta</a>
+                            <a class="dropdown-item" href="/ampliacion/salaPrensa">Sala de prensa</a>
+                            <a class="dropdown-item" href="/ampliacion/privacidad">Política de privacidad</a>
+                            <a class="dropdown-item" href="/ampliacion/condicionesGenerales">Condiciones generales</a>
+                            <a class="dropdown-item" href="/ampliacion/nosotros">Nosotros</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                </div>
+
+            </ul>
+        <ul class="nav navbar-nav navbar-right">
+            {% if usuario == null %}
+            <li class="nav-item {% if active == 'registrarse' %}active{% endif %}">
+                <a class="nav-link" href="/registrarse"><span class="glyphicon glyphicon-user"></span> Registrate</a>
+            </li>
+            <li class="nav-item {% if active == 'identificarse' %}active{% endif %}">
+                <a class="nav-link" href="/identificarse"><span class="glyphicon glyphicon-log-in"></span> Identifícate</a>
+            </li>
+            {% endif %}
+            {% if usuario != null %}
+            <li><a class="nav-link" href="/infousuario"><span class="glyphicon glyphicon-user"></span> {{ usuario.email
+                }}</a></li>
+            <li><a class="nav-link" href="/desconectarse"><span class="glyphicon glyphicon-log-out"></span>
+                Desconectarse</a></li>
+            {% endif %}
+        </ul>
+</div>
 </nav>
 </div>
 
 <div class="container">
-	<script>
-		var mensaje = getUrlParameter('mensaje');
-		var tipoMensaje = getUrlParameter('tipoMensaje');
-		
-		if ( mensaje != ""){
-			if (tipoMensaje == "" ){
-				tipoMensaje = 'alert-info';
-			}
-			$( ".container" )
-				.append("<div class='alert "+tipoMensaje+"'>"+mensaje+" </div>");
-		}
-		
-		function getUrlParameter(name) {
-		    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-		    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-		    var results = regex.exec(location.search);
-		    return results === null ? '' : 
-		    	decodeURIComponent(results[1].replace(/\+/g, ' '));
-		};
-	</script>
+    <script>
+        var mensaje = getUrlParameter('mensaje');
+        var tipoMensaje = getUrlParameter('tipoMensaje');
 
-	<!-- Contenido -->
-	{% block contenido_principal %}
-	<!-- Posible contenido por defecto -->
-	{% endblock %}
+        if (mensaje != "") {
+            if (tipoMensaje == "") {
+                tipoMensaje = 'alert-info';
+            }
+            $(".container")
+                .append("<div class='alert " + tipoMensaje + "'>" + mensaje + " </div>");
+        }
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' :
+                decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+    </script>
+
+    <!-- Contenido -->
+    {% block contenido_principal %}
+    <!-- Posible contenido por defecto -->
+    {% endblock %}
 
 </div>
 

@@ -37,6 +37,7 @@
 
 <!-- Paginación mostrar la actual y 2 anteriores y dos siguientes -->
 <nav>
+    {{inicio}}-{{fin}} de {{total}}
     <ul class="pagination justify-content-center">
         {% for pagina in paginas %}
         <li class="page-item" id="pi-{{ pagina}}">

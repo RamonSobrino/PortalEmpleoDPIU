@@ -21,6 +21,7 @@ module.exports = function(app, swig, gestorBD) {
                 if (ofertas == null) {
                     res.send("Error al listar ");
                 } else {
+                    total = ofertas.length;
                     var ultimaPg = total/numRegistros;
                     if (total % 4 > 0 ){ // Sobran decimales
                         ultimaPg = ultimaPg+1;
@@ -32,13 +33,30 @@ module.exports = function(app, swig, gestorBD) {
                             paginas.push(i);
                         }
                     }
+                    var inicio, fin;
+                    if(total<=numRegistros){
+                        inicio =1;
+                        fin = total;
+                    }else if(pg==1){
+                        inicio =1;
+                        fin =numRegistros;
+                    }else{
+                        inicio = numRegistros*(pg-1);
+                        fin = inicio + numRegistros;
+                        if(fin>total){
+                            fin =total;
+                        }
+                    }
 
                     res.send(swig.renderFile('views/private/bmisofertas.html', {
                         active: "misofertas",
                         usuario: req.session.usuario,
                         ofertas : ofertas,
                         paginas : paginas,
-                        actual : pg
+                        actual : pg,
+                        total: total,
+                        inicio: inicio,
+                        fin: fin
                     }));
                 }
             });

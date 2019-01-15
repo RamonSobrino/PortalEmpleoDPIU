@@ -8,6 +8,295 @@
 
 {% block contenido_principal %}
 <h2>Inversión</h2>
+<form method="get">
+    <div class="form-group col-sm-12">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="sexo"
+                   id="sr"
+                   value="señor"
+                   required
+            >
+            <label class="form-check-label"
+                   for="sr">Señor</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="sexo"
+                   id="sis"
+                   value="señora"
+                   required
+            >
+            <label class="form-check-label"
+                   for="sis">Señora</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="nombre">Nombre:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="nombre"
+                   name="nombre"
+                   required/>
+        </div>
+        <div class="invalid-feedback">
+            Please provide a valid city.
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="apellidos">Apellidos:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="apellidos"
+                   name="apellidos"
+                   required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="pais">Pais:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="pais"
+                   name="pais"
+                   required/>
+        </div>
+    </div>
+    <div class="form-group col-sm-12">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="solicitante"
+                   id="empresa"
+                   value="empresa">
+            <label class="form-check-label"
+                   for="empresa">Empresa</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="solicitante"
+                   id="particular"
+                   value="particular">
+            <label class="form-check-label"
+                   for="particular">Particular</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="nombreEmpresa">Nombre empresa:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="nombreEmpresa"
+                   name="nombreEmpresa"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="puestoTrabajo">Puesto trabajo:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="puestoTrabajo"
+                   name="puestoTrabajo"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="paisEmpresa">País de la empresa:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="paisEmpresa"
+                   name="paisEmpresa"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row col-sm-12">
+            <label>Esta el negocio de la empresa diversificado en más de un país: </label>
+        </div>
+        <div class="row col-sm-12">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio"
+                       name="empresaVariosPaises"
+                       id="empresaVariosPaisesSi"
+                       value="si">
+                <label class="form-check-label"
+                       for="empresaVariosPaisesSi">Sí</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio"
+                       name="empresaVariosPaises"
+                       id="empresaVariosPaisesNO"
+                       value="no">
+                <label class="form-check-label"
+                       for="empresaVariosPaisesNO">No</label>
+            </div>
+        </div>
+    </div>
+    <div class="row col-sm-12">
+        <label>Dispone de inversión en otras empresas: </label>
+    </div>
+    <div class="row col-sm-12">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="empresaDisponeInversion"
+                   id="empresaDisponeInversionSi"
+                   value="si">
+            <label class="form-check-label"
+                   for="empresaDisponeInversionSi">Sí</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="empresaDisponeInversion"
+                   id="empresaDisponeInversionNO"
+                   value="no">
+            <label class="form-check-label"
+                   for="empresaDisponeInversionNO">No</label>
+        </div>
+    </div>
+    <div class="row col-sm-12">
+        <label>Sector al que pertenece la empresa: </label>
+    </div>
+    <div class="row col-sm-12">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="empresaSector"
+                   id="empresaSectorInversion"
+                   value="Inversiones">
+            <label class="form-check-label"
+                   for="empresaSectorInversion">Inversiones</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="empresaSector"
+                   id="empresaSectorBanca"
+                   value="Banca privada">
+            <label class="form-check-label"
+                   for="empresaSectorBanca">Banca privada</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="empresaSector"
+                   id="empresaSectorOtros"
+                   value="Otros">
+            <label class="form-check-label"
+                   for="empresaSectorOtros">Otros</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="capitalMinimo">Capital mínimo disponible:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="capitalMinimo"
+                   name="capitalMinimo"
+                   required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="capitalMaximo">Capital máximo disponible:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="capitalMaximo"
+                   name="capitalMaximo"
+                   required/>
+        </div>
+    </div>
+    <div class="row col-sm-12">
+        <label>Disponibilidad para realizar inversión: </label>
+    </div>
+    <div class="row col-sm-12">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="empresaDisponibilidadInversion"
+                   id="empresaDisponibilidadInversionInmediato"
+                   value="Inmediato">
+            <label class="form-check-label"
+                   for="empresaDisponibilidadInversionInmediato">Inmediato</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="empresaDisponibilidadInversion"
+                   id="empresaDisponibilidadInversionMasUnMes"
+                   value="Más de un mes">
+            <label class="form-check-label"
+                   for="empresaDisponibilidadInversionMasUnMes">Más de un mes</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="empresaDisponibilidadInversion"
+                   id="empresaDisponibilidadInversionMasSeisMeses"
+                   value="Más de seis meses">
+            <label class="form-check-label"
+                   for="empresaDisponibilidadInversionMasSeisMeses">Más de seis meses</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="empresaDisponibilidadInversion"
+                   id="empresaDisponibilidadInversionMasAnio"
+                   value="Más de un año">
+            <label class="form-check-label"
+                   for="empresaDisponibilidadInversionMasAnio">Más de un año</label>
+        </div>
+    </div>
+    <div class="row col-sm-12">
+        <label>Concertar llamada: </label>
+    </div>
+    <div class="row col-sm-12">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="contretarLLamada"
+                   id="contretarLLamadaSi"
+                   value="si">
+            <label class="form-check-label"
+                   for="contretarLLamadaSi">Sí</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio"
+                   name="contretarLLamada"
+                   id="contretarLLamadaNO"
+                   value="no">
+            <label class="form-check-label"
+                   for="contretarLLamadaNO">No</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="telefonoConcretarLLamada">Concretar llamada:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="telefonoConcretarLLamada"
+                   name="telefonoConcretarLLamada"
+                   placeholder="teléfono al que realizar la llamada"
+                   required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="diaLLamada">Preferencia día para la llamada:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="diaLLamada"
+                   name="diaLLamada"
+                   required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2"
+               for="horaLLamada">Preferencia hora para la llamada:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control"
+                   id="horaLLamada"
+                   name="horaLLamada"
+                   required/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+    </div>
 
+</form>
 
 {% endblock %}

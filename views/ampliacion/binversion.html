@@ -3,7 +3,18 @@
 {% block titulo %} Inversión {% endblock %}
 
 {% block scripts %}
-<script src="../js/inversion.js"></script>
+<script>
+    function mostrarPanelInfEmpresa(){
+        $('#panelInfEmpresa').show();
+    }
+
+    function ocultarPanelInfEmpresa(){
+        $('#panelInfEmpresa').hide();
+    }
+    $(document).ready(function(){
+        ocultarPanelInfEmpresa();
+    });
+</script>
 {% endblock %}
 
 {% block contenido_principal %}
@@ -67,7 +78,7 @@
     <div class="form-group col-sm-12">
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio"
-                   name="solicitante"
+                   name="solicitante" onclick="mostrarPanelInfEmpresa();"
                    id="empresa"
                    value="empresa">
             <label class="form-check-label"
@@ -75,111 +86,115 @@
         </div>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio"
-                   name="solicitante"
+                   name="solicitante" onclick="ocultarPanelInfEmpresa();"
                    id="particular"
-                   value="particular">
+                   value="particular" checked>
             <label class="form-check-label"
                    for="particular">Particular</label>
         </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2"
-               for="nombreEmpresa">Nombre empresa:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control"
-                   id="nombreEmpresa"
-                   name="nombreEmpresa"/>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2"
-               for="puestoTrabajo">Puesto trabajo:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control"
-                   id="puestoTrabajo"
-                   name="puestoTrabajo"/>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2"
-               for="paisEmpresa">País de la empresa:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control"
-                   id="paisEmpresa"
-                   name="paisEmpresa"/>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="row col-sm-12">
-            <label>Esta el negocio de la empresa diversificado en más de un país: </label>
-        </div>
-        <div class="row col-sm-12">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio"
-                       name="empresaVariosPaises"
-                       id="empresaVariosPaisesSi"
-                       value="si">
-                <label class="form-check-label"
-                       for="empresaVariosPaisesSi">Sí</label>
+    <div class="card" id="panelInfEmpresa">
+        <div class="card-body">
+            <div class="form-group">
+                <label class="control-label col-sm-2"
+                       for="nombreEmpresa">Nombre empresa:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"
+                           id="nombreEmpresa"
+                           name="nombreEmpresa"/>
+                </div>
             </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio"
-                       name="empresaVariosPaises"
-                       id="empresaVariosPaisesNO"
-                       value="no">
-                <label class="form-check-label"
-                       for="empresaVariosPaisesNO">No</label>
+            <div class="form-group">
+                <label class="control-label col-sm-2"
+                       for="puestoTrabajo">Puesto trabajo:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"
+                           id="puestoTrabajo"
+                           name="puestoTrabajo"/>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="row col-sm-12">
-        <label>Dispone de inversión en otras empresas: </label>
-    </div>
-    <div class="row col-sm-12">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio"
-                   name="empresaDisponeInversion"
-                   id="empresaDisponeInversionSi"
-                   value="si">
-            <label class="form-check-label"
-                   for="empresaDisponeInversionSi">Sí</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio"
-                   name="empresaDisponeInversion"
-                   id="empresaDisponeInversionNO"
-                   value="no">
-            <label class="form-check-label"
-                   for="empresaDisponeInversionNO">No</label>
-        </div>
-    </div>
-    <div class="row col-sm-12">
-        <label>Sector al que pertenece la empresa: </label>
-    </div>
-    <div class="row col-sm-12">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio"
-                   name="empresaSector"
-                   id="empresaSectorInversion"
-                   value="Inversiones">
-            <label class="form-check-label"
-                   for="empresaSectorInversion">Inversiones</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio"
-                   name="empresaSector"
-                   id="empresaSectorBanca"
-                   value="Banca privada">
-            <label class="form-check-label"
-                   for="empresaSectorBanca">Banca privada</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio"
-                   name="empresaSector"
-                   id="empresaSectorOtros"
-                   value="Otros">
-            <label class="form-check-label"
-                   for="empresaSectorOtros">Otros</label>
+            <div class="form-group">
+                <label class="control-label col-sm-2"
+                       for="paisEmpresa">País de la empresa:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"
+                           id="paisEmpresa"
+                           name="paisEmpresa"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row col-sm-12">
+                    <label>Esta el negocio de la empresa diversificado en más de un país: </label>
+                </div>
+                <div class="row col-sm-12">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                               name="empresaVariosPaises"
+                               id="empresaVariosPaisesSi"
+                               value="si">
+                        <label class="form-check-label"
+                               for="empresaVariosPaisesSi">Sí</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"
+                               name="empresaVariosPaises"
+                               id="empresaVariosPaisesNO"
+                               value="no">
+                        <label class="form-check-label"
+                               for="empresaVariosPaisesNO">No</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row col-sm-12">
+                <label>Dispone de inversión en otras empresas: </label>
+            </div>
+            <div class="row col-sm-12">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"
+                           name="empresaDisponeInversion"
+                           id="empresaDisponeInversionSi"
+                           value="si">
+                    <label class="form-check-label"
+                           for="empresaDisponeInversionSi">Sí</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"
+                           name="empresaDisponeInversion"
+                           id="empresaDisponeInversionNO"
+                           value="no">
+                    <label class="form-check-label"
+                           for="empresaDisponeInversionNO">No</label>
+                </div>
+            </div>
+            <div class="row col-sm-12">
+                <label>Sector al que pertenece la empresa: </label>
+            </div>
+            <div class="row col-sm-12">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"
+                           name="empresaSector"
+                           id="empresaSectorInversion"
+                           value="Inversiones">
+                    <label class="form-check-label"
+                           for="empresaSectorInversion">Inversiones</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"
+                           name="empresaSector"
+                           id="empresaSectorBanca"
+                           value="Banca privada">
+                    <label class="form-check-label"
+                           for="empresaSectorBanca">Banca privada</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio"
+                           name="empresaSector"
+                           id="empresaSectorOtros"
+                           value="Otros">
+                    <label class="form-check-label"
+                           for="empresaSectorOtros">Otros</label>
+                </div>
+            </div>
         </div>
     </div>
     <div class="form-group">

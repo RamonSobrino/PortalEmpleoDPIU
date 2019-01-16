@@ -40,7 +40,7 @@ app.use(express.static('public'));
 /*
 	VARIABLES GLOBALES
  */
-app.set('port', 8090);
+app.set('port', 8091);
 app.set('db','mongodb://admin:dpiu2018@ds127634.mlab.com:27634/dpiu_bolsa_empleo');
 //app.set('db','mongodb://localhost:27017/dpiu_bolsa_empleo');
 app.set('clave','abcdefg');
